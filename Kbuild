@@ -1,5 +1,9 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 
+ifeq ($(CONFIG_ARCH_CANOE), y)
+dtbo-y += canoe-eva.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SUN), y)
 dtbo-y += sun-eva.dtbo
 endif
