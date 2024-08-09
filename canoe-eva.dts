@@ -8,16 +8,20 @@
 
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/soc/qcom,ipcc.h>
-#include <dt-bindings/interconnect/qcom,sun.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
 #include <dt-bindings/clock/qcom,videocc-canoe.h>
 #include <dt-bindings/clock/qcom,gcc-canoe.h>
 #include <dt-bindings/clock/qcom,evacc-canoe.h>
 #include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
-//#include "canoe-eva.dtsi"
+#include "canoe-eva.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Canoe";
 	compatible = "qcom,canoe";
-	qcom,msm-id = <0x10294 0x10000>;
+	qcom,msm-id = <0x10294 0x10000>, <0x10294 0x20000>, <0x10295 0x10000>, <0x10295 0x20000>,
+		      <0x30294 0x10000>, <0x30294 0x20000>, <0x30295 0x10000>, <0x30295 0x20000>,
+		      <0x1010294 0x10000>, <0x1010294 0x20000>, <0x1010295 0x10000>,
+		      <0x1010295 0x20000>, <0x1030294 0x10000>, <0x1030294 0x20000>,
+		      <0x1030295 0x10000>, <0x1030295 0x20000>;
 	qcom,board-id = <0 0>;
 };

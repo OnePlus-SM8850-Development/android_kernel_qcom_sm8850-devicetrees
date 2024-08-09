@@ -7,11 +7,11 @@
 	msm_cvp: qcom,cvp@2400000 {
 		compatible = "qcom,msm-cvp", "qcom,canoe-cvp";
 		status = "ok";
-		reg = <0x2400000 0x100000>;
+		reg = <0x0 0x2400000 0x0 0x100000>;
 		interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>, <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
 
 		/* LLCC Cache */
-		cache-slice-names = "cvpfw", "cvp";
+		/*cache-slice-names = "cvpfw", "cvp";*/
 
 		/* Supply */
 		cvp-supply = <&eva_cc_mvs0c_gdsc>;
@@ -67,30 +67,31 @@
 		cvp,firmware-name = "evass";
 
 		/* Buses */
-		//cvp_cnoc {
-		//	compatible = "qcom,msm-cvp,bus";
-		//	qcom,bus-governor = "performance";
-		//	qcom,bus-range-kbps = <1000 1000>;
-		//	interconnects = <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_EVA_CFG>;
-		//	interconnect-names = "eva-cfg";
-		//};
+		cvp_cnoc {
+			compatible = "qcom,msm-cvp,bus";
+			qcom,bus-governor = "performance";
+			qcom,bus-range-kbps = <1000 1000>;
+			interconnects = <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_EVA_CFG>;
+			interconnect-names = "eva-cfg";
+		};
 
-		//cvp_bus_ddr {
-		//	compatible = "qcom,msm-cvp,bus";
-		//	qcom,bus-governor = "performance";
-		//	qcom,bus-range-kbps = <1000 6533000>;
-		//	interconnects = <&mmss_noc MASTER_VIDEO_EVA &mc_virt SLAVE_EBI1>;
-		//	interconnect-names = "eva-ddr";
-		//};
+		cvp_bus_ddr {
+			compatible = "qcom,msm-cvp,bus";
+			qcom,bus-governor = "performance";
+			qcom,bus-range-kbps = <1000 6533000>;
+			interconnects = <&mmss_noc MASTER_VIDEO_EVA &mc_virt SLAVE_EBI1>;
+			interconnect-names = "eva-ddr";
+		};
 
 		/* MMUs */
 		/* Camera cb is used to get secure camera buffer IPA */
-		//cvp_camera_cb {
-		//	compatible = "qcom,msm-cvp,context-bank";
-		//	label = "cvp_camera";
-		//	buffer-types = <0xfff>;
-		//	qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_EVA_CB>;
-		//};
+		cvp_camera_cb {
+			compatible = "qcom,msm-cvp,context-bank";
+			label = "cvp_camera";
+			buffer-types = <0xfff>;
+			qti,smmu-proxy-cb-id = <QTI_SMMU_PROXY_EVA_CB>;
+		};
+
 		non_secure_cb_group: cvp_non_secure_cb_group {
 			qcom,iommu-faults = "non-fatal";
 		};
@@ -106,8 +107,8 @@
 		cvp_non_secure_cb: cvp_non_secure_cb {
 			compatible = "qcom,msm-cvp,context-bank";
 			label = "cvp_hlos";
-			//iommus =
-			//	<&apps_smmu 0x1920 0x0020>;
+			iommus =
+				<&apps_smmu 0x1920 0x0020>;
 			buffer-types = <0xfff>;
 			dma-coherent;
 			qcom,iommu-group = <&non_secure_cb_group>;
@@ -118,8 +119,8 @@
 		cvp_secure_nonpixel_cb: cvp_secure_nonpixel_cb {
 			compatible = "qcom,msm-cvp,context-bank";
 			label = "cvp_sec_nonpixel";
-			//iommus =
-			//	<&apps_smmu 0x1924 0x0020>;
+			iommus =
+				<&apps_smmu 0x1924 0x0020>;
 			buffer-types = <0x741>;
 			qcom,iommu-faults = "non-fatal";
 			memory-region = <&cvp_iommu_region_partition>;
@@ -129,8 +130,8 @@
 		cvp_secure_pixel_cb: cvp_secure_pixel_cb {
 			compatible = "qcom,msm-cvp,context-bank";
 			label = "cvp_sec_pixel";
-			//iommus =
-			//	<&apps_smmu 0x1923 0x0000>;
+			iommus =
+				<&apps_smmu 0x1923 0x0000>;
 			buffer-types = <0x106>;
 			qcom,iommu-faults = "non-fatal";
 			memory-region = <&cvp_iommu_region_partition>;
@@ -140,17 +141,17 @@
 		cvp_dsp_cb: cvp_dsp_cb {
 			compatible = "qcom,msm-cvp,context-bank";
 			label = "cvp_dsp";
-			//iommus =
-			//	<&apps_smmu 0x1920 0x0020>;
+			iommus =
+				<&apps_smmu 0x1920 0x0020>;
 			buffer-types = <0xfff>;
 			qcom,iommu-group = <&non_secure_cb_group>;
 			memory-region = <&cvp_iommu_region_partition>;
 		};
 		/* Memory Heaps */
-		//qcom,msm-cvp,mem_cdsp {
-		//	compatible = "qcom,msm-cvp,mem-cdsp";
-		//	memory-region = <&cdsp_eva_mem>;
-		//};
+		qcom,msm-cvp,mem_cdsp {
+			compatible = "qcom,msm-cvp,mem-cdsp";
+			memory-region = <&cdsp_eva_mem>;
+		};
 
 	};
 };
