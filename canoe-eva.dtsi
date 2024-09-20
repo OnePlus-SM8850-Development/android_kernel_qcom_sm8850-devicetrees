@@ -101,10 +101,10 @@
 
 		cvp_iommu_region_partition: cvp_iommu_region_partition {
 			/* These IOVA regions are unique per context bank */
-			iommu-addresses = <&cvp_non_secure_cb 0x0 0x4b000000>, <&cvp_non_secure_cb 0xdb000000 0x25000000>,
-			<&cvp_dsp_cb 0x0 0x4b000000>, <&cvp_dsp_cb 0xdb000000 0x25000000>,
-			<&cvp_secure_nonpixel_cb 0x0 0x01000000>, <&cvp_secure_nonpixel_cb 0x26800000 0xd9800000>,
-			<&cvp_secure_pixel_cb 0x0 0x26800000>, <&cvp_secure_pixel_cb 0x4b000000 0xb5000000>;
+			iommu-addresses = <&cvp_non_secure_cb 0x0 0x0 0x0 0x4b000000>, <&cvp_non_secure_cb 0x0 0xdb000000 0x0 0x25000000>,
+			<&cvp_dsp_cb 0x0 0x0 0x0 0x4b000000>, <&cvp_dsp_cb 0x0 0xdb000000 0x0 0x25000000>,
+			<&cvp_secure_nonpixel_cb 0x0 0x0 0x0 0x01000000>, <&cvp_secure_nonpixel_cb 0x0 0x26800000 0x0 0xd9800000>,
+			<&cvp_secure_pixel_cb 0x0 0x0 0x0 0x26800000>, <&cvp_secure_pixel_cb 0x0 0x4b000000 0x0 0xb5000000>;
 		};
 
 		cvp_non_secure_cb: cvp_non_secure_cb {
