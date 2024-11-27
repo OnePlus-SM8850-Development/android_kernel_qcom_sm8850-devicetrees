@@ -53,8 +53,6 @@
 		pas-id = <26>;
 		memory-region = <&cvp_mem>;
 
-		/* UC region mapping */
-		ipclite_mappings = <0xFE500000 0x100000 0x82600000>;
 		/* DEVICE mapping */
 		aon_timer_mappings = <0xFFA00000 0x1000 0xc220000>;
 		/* DEVICE mapping */
@@ -150,6 +148,13 @@
 		qcom,msm-cvp,mem_cdsp {
 			compatible = "qcom,msm-cvp,mem-cdsp";
 			memory-region = <&cdsp_eva_mem>;
+		};
+
+		/* UC region mapping */
+		ipclite_mappings {
+			compatible = "qcom,msm-cvp,ipclite";
+			memory-region = <&global_sync_mem>;
+			iova-region-start = <0xFE500000>;
 		};
 	};
 };
