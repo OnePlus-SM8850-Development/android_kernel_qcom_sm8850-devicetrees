@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
  */
 
 &soc {
@@ -12,12 +12,12 @@
 		mmrm-peak-threshold = <10000>;
 
 		/* MM Rail info */
-		mm-rail-corners = "lowsvs", "svs", "svsl1", "nom", "noml1", "turbo";
-		mm-rail-fact-volt = <37487 41157 44827 47711 50332 52429>;
+		mm-rail-corners = "lowsvsd1", "lowsvs", "svs", "svsl1", "nom", "noml1", "turbo", "turbol1";
+		mm-rail-fact-volt = <37487 37487 41157 44827 47711 50332 52429 52429>;
 
 		/* Scaling factors */
-		scaling-fact-dyn = <39977 48497 57672 66192 74056 81265>;
-		scaling-fact-leak = <827720 969278 1133118 1283851 1445069 1597768>;
+		scaling-fact-dyn = <39977 39977 48497 57672 66192 74056 81265 81265>;
+		scaling-fact-leak = <827720 827720 969278 1133118 1283851 1445069 1597768 1597768>;
 
 		/* Client info */
 		mmrm-client-info =
