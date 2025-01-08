@@ -1,3 +1,8 @@
+ifeq ($(CONFIG_ARCH_CANOE), y)
+dtbo-y += canoe/canoe-mmrm.dtbo
+dtbo-y += canoe/canoe-mmrm-test.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SUN), y)
 dtbo-y += sun/sun-mmrm.dtbo
 dtbo-y += sun/sun-mmrm-test.dtbo
