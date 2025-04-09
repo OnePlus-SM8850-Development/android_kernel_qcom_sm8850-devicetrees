@@ -4,6 +4,10 @@ ifeq ($(CONFIG_ARCH_CANOE), y)
 dtbo-y += canoe-eva.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_ALOR), y)
+dtbo-y += alor-eva.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SUN), y)
 dtbo-y += sun-eva.dtbo
 dtbo-y += sun-eva-v2.dtbo
