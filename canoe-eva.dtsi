@@ -9,6 +9,8 @@
 		status = "ok";
 		reg = <0x0 0x2400000 0x0 0x100000>;
 		interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>, <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
+		#address-cells = <2>;
+		#size-cells = <2>;
 
 		/* LLCC Cache */
 		cache-slice-names = "cvpfw", "cvp";
