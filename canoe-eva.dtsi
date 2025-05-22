@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
 &soc {
@@ -163,5 +163,13 @@
 			iova-region-start = <0xFE500000>;
 		};
 
+		/* PMQOS Latency threshold */
+		core_pc_level {
+			compatible = "qcom,msm-cvp,pmqos-latency";
+			label = "core_pc_level";
+			medium_core_pc = <&MEDIUM_OFF_C4>;
+			medium_cluster_pc = <&MEDIUM_CLUSTER_PWR_DN>;
+			apps_pc = <&APSS_OFF>;
+		};
 	};
 };
