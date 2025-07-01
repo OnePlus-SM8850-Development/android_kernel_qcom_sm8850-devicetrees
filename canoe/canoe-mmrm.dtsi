@@ -12,12 +12,12 @@
 		mmrm-peak-threshold = <10000>;
 
 		/* MM Rail info */
-		mm-rail-corners = "lowsvsd1", "lowsvs", "svs", "svsl1", "nom", "noml1", "turbo", "turbol0", "turbol1";
-		mm-rail-fact-volt = <35652 37487 41157 44827 47711 50332 52429 56099 56099>;
+		mm-rail-corners = "lowsvsd1", "lowsvs", "svs", "svsl1", "nom", "noml1", "turbo", "turbol1";
+		mm-rail-fact-volt = <35652 37487 41157 44827 47711 50332 52429 56099>;
 
 		/* Scaling factors */
-		scaling-fact-dyn = <35390 39322 48497 57672 66192 74056 80610 93717 93717>;
-		scaling-fact-leak = <622592 693371 850002 1030226 1190790 1353974 1498153 1786512 1786512>;
+		scaling-fact-dyn = <35390 39322 48497 57672 66192 74056 80610 93717>;
+		scaling-fact-leak = <622592 693371 850002 1030226 1190790 1353974 1498153 1786512>;
 
 		/* Client info */
 		mmrm-client-info =
