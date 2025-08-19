@@ -16,11 +16,6 @@ maintainers:
 properties:
   compatible:
     const: qcom,smcinvoke
-  qcom,disable-adci:
-    type: boolean
-    description: |
-      Avoid running the ADCI thread in Guest Virtual Machines (GVM), as the
-      ADCI functionality is managed by the host.
 
 required:
   - compatible
@@ -31,5 +26,4 @@ examples:
   - |
     qcom_smcinvoke: smcinvoke@87900000 {
         compatible = "qcom,smcinvoke";
-        qcom,disable-adci;
     };

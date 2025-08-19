@@ -6,7 +6,5 @@
 &firmware {
 	qcom_smcinvoke {
 		compatible = "qcom,smcinvoke";
-		/*To disable ADCI thread*/
-		qcom,disable-adci;
 	};
 };
