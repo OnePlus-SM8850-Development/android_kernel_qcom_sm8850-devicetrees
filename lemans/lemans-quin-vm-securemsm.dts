@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "lemans-vm.dtsi"
+#include "lemans-vm-securemsm.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. LeMans Guest Virtual Machine";

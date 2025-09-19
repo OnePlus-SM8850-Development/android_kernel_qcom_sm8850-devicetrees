@@ -6,7 +6,7 @@
 /dts-v1/;
 /plugin/;
 
-#include "nord-vm.dtsi"
+#include "nord-vm-securemsm.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. SA8797p Guest Virtual Machine";
