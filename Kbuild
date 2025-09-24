@@ -1,5 +1,6 @@
 ifeq ($(CONFIG_ARCH_CANOE), y)
 dtbo-y += canoe/canoe-mmrm.dtbo
+dtbo-y += canoe/canoe-alana-mmrm.dtbo
 dtbo-y += canoe/canoe-mmrm-test.dtbo
 endif
 
