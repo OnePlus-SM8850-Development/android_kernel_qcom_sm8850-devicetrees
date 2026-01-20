@@ -12,5 +12,5 @@
 	model = "Qualcomm Technologies, Inc. Monaco Guest Virtual Machine";
 	compatible = "qcom,monaco", "qcom,quinvm";
 	qcom,msm-id = <606 0x10000>;
-	qcom,board-id = <0x0 0x1000001>, <0x0 0x1000002>, <0x0 0x2000002>;
+	qcom,board-id = <0x0 0x1000001>, <0x0 0x1000002>, <0x0 0x2000001>, <0x0 0x2000002>;
 };
