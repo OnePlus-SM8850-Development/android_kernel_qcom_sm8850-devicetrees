@@ -57,7 +57,9 @@
 
 			qcom,bt-vdd18-aon-supply  = <&L2G>;   /* VDD1P8_AON */
 			qcom,bt-vdd12-io-supply   = <&L3G>;   /* VDD1P2_IO */
-			qcom,bt-ant-ldo-supply    = <&L6K>;   /* AV91C_VDD Extractor */
+			//#ifndef OPLUS_BUG_STABILITY
+			//qcom,bt-ant-ldo-supply    = <&L6K>;   /* AV91C_VDD Extractor */
+			//#endif /* OPLUS_BUG_STABILITY */
 			qcom,bt-vdd-dig-supply    = <&S2J>;   /* BT CX_MX LDO */
 			qcom,bt-vdd-aon-supply    = <&S2J>;   /* RFA_CMN/AON */
 			qcom,bt-vdd-rfa0p75-supply = <&S2J>;  /* RFA_OP75 */
