@@ -7,7 +7,12 @@
 
 &thermal_zones {
 	socd {
-		polling-delay-passive = <100>;
+/* #ifdef OPLUS_FEATURE_CHG_BASIC */
+/* polling period change 1s */
+		polling-delay-passive = <1000>;
+/* #else */
+		/* polling-delay-passive = <100>; */
+/* #endif */
 		thermal-sensors = <&bcl_soc>;
 
 		trips {
@@ -24,7 +29,12 @@
 			};
 
 			socd_trip: socd-trip {
-				temperature = <90>;
+/* #ifdef OPLUS_FEATURE_CHG_BASIC */
+/* thershold: 5% power */
+				temperature = <95>;
+/* #else */
+				/* temperature = <90>; */
+/* #endif */
 				hysteresis = <0>;
 				type = "passive";
 			};
@@ -33,9 +43,23 @@
 		cooling-maps {
 			socd_map {
 				trip = <&socd_trip>;
-				cooling-device = <&APC1_MX_CX_PAUSE 0 1>,
-						 <&cdsp_sw 0 4>,
-						 <&msm_gpu 0 4>;
+				cooling-device =
+/* #ifdef OPLUS_FEATURE_CHG_BASIC */
+/* change big core: 2.2G, super core 2.4G */
+					<&CPU0 THERMAL_NO_LIMIT 11>,
+					<&CPU6 THERMAL_NO_LIMIT 15>,
+/* #else */
+					/* <&APC1_MX_CX_PAUSE 0 1>, */
+/* #endif */
+/* Alignment infiniti:Rollback upgrade strategy */
+					 <&cdsp_sw 0 4>,
+					 <&msm_gpu 0 5>;
+/*
+ *					 <&cpu4_pause 0 1>,
+ *					 <&cpu5_pause 0 1>,
+ *					 <&cdsp_sw 0 THERMAL_NO_LIMIT>,
+ *					 <&msm_gpu 0 5>;
+ */
 			};
 		};
 	};

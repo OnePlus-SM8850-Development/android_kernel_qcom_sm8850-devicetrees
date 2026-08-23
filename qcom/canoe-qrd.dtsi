@@ -274,6 +274,10 @@
 	periph-1cd-supply = <&L13B>;
 	periph-1ce-supply = <&L14B>;
 	periph-1cf-supply = <&L15B>;
+//#ifdef OPLUS_FEATURE_CAMERA_COMMON
+//add for oplus L16B supply
+	periph-1d0-supply = <&L16B>;
+//#endif
 	periph-1d1-supply = <&L17B>;
 	periph-1d2-supply = <&L18B>;
 	periph-1e4-supply = <&BOB1>;
