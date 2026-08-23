@@ -29,7 +29,9 @@
 	audio_gpr: qcom,gpr {
 		compatible = "qcom,gpr";
 		qcom,glink-channels = "adsp_apps";
-		qcom,intents = <0x200 20>;
+		//qcom,intents = <0x200 20>;
+		//add pre-alloc intent for the large packet
+		qcom,intents = <0x200 20 0x400 8>;
 		qcom,ch-sched-rt;
 		reg = <GPR_DOMAIN_ADSP>;
 
