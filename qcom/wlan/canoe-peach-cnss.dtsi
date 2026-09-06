@@ -82,6 +82,10 @@
 		reg-names = "smmu_iova_ipa";
 		qcom,wlan-sw-ctrl-gpio = <&tlmm 19 0>;
 
+		/* ifdef OPLUS_FEATURE_WIFI_MAC*/
+		//lixiong2@CONNECTIVITY.HARDWARE.WIFI.MAC.9217452, add nv-mac flag for 8850
+		use-nv-mac;
+		/* endif OPLUS_FEATURE_WIFI_MAC*/
 		supported-ids = <0x110E>;
 		wlan-en-gpio = <&tlmm 16 0>;
 		qcom,bt-en-gpio = <&pmh0104_gpios 5 0>;
