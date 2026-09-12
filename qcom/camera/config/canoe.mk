@@ -1,3 +1,4 @@
+ifdef OPLUS_USE_QCOM_DTBO
 dtbo-$(CONFIG_ARCH_CANOE)   += canoe-camera.dtbo \
 	alor-interposer-camera.dtbo \
 	alor-interposer-camera-sensor-cdp.dtbo \
@@ -17,6 +18,20 @@ dtbo-$(CONFIG_ARCH_CANOE)   += canoe-camera-v2.dtbo \
 	alor-camera-sensor-qrd.dtbo \
 	alor-camera-sensor-mtp-peach.dtbo \
 	alor-camera-sensor-rcm-peach.dtbo
+else
+dtbo-$(CONFIG_ARCH_CANOE) += canoe-camera.dtbo \
+	alor-camera.dtbo \
+	whale-camera.dtbo \
+	alor-camera-sensor-cdp.dtbo \
+	alor-camera-sensor-qrd.dtbo
+
+dtbo-$(CONFIG_ARCH_CANOE)   += canoe-camera-v2.dtbo \
+	alor-interposer-camera-v2.dtbo
+
+dtbo-$(CONFIG_ARCH_CANOE)   += oplus/infiniti-camera-sensor-mtp-preT0.dtbo       \
+                               oplus/infiniti-camera-sensor-mtp-T0.dtbo
+endif
+
 dtbo-$(CONFIG_ARCH_CHORA) += chora-camera.dtbo \
 	chora-camera-sensor-mtp.dtbo \
 	chora-camera-sensor-qrd.dtbo \
