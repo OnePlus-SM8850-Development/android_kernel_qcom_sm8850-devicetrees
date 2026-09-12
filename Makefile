@@ -4,3 +4,7 @@ vendor := $(src)
 ifneq "$(wildcard $(vendor)/qcom)" ""
 	subdir-y += qcom
 endif
+
+ifeq ($(CONFIG_ARCH_CANOE),y)
+	subdir-y += oplus
+endif

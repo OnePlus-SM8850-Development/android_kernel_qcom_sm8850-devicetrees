@@ -39,13 +39,14 @@
 
 	chosen: chosen {
 		/* All new command line changes must go into canoe-v2.dtsi */
-		bootargs = "android_arch_task_struct_size=512 loglevel=6 arm64.nosme log_buf_len=512K cpufreq.default_governor=performance sysctl.kernel.sched_pelt_multiplier=4 no-steal-acc kpti=0 swiotlb=0 loop.max_part=7 irqaffinity=0-1 fw_devlink.strict=1 pcie_ports=compat pci-msm-drv.pcie_sm_regs=0x1D07000,0x1040,0x1048,0x3000,0x1 kasan=off rcupdate.rcu_expedited=1 rcu_nocbs=0-7 cgroup_disable=pressure printk.console_no_auto_verbose=1 sysctl.kernel.panic_on_rcu_stall=1 ftrace_dump_on_oops restrict_cma_redirect=false slub_debug=- can.stats_timer=0";
+		bootargs = "android_arch_task_struct_size=512 loglevel=6 arm64.nosme log_buf_len=512K cpufreq.default_governor=performance sysctl.kernel.sched_pelt_multiplier=4 minidump.stack_dump=true no-steal-acc kpti=0 swiotlb=0 loop.max_part=7 irqaffinity=0-1 fw_devlink.strict=1 pcie_ports=compat pci-msm-drv.pcie_sm_regs=0x1D07000,0x1040,0x1048,0x3000,0x1 kasan=off rcupdate.rcu_expedited=1 rcu_nocbs=0-7 cgroup_disable=pressure printk.console_no_auto_verbose=0 sysctl.kernel.panic_on_rcu_stall=1 ftrace_dump_on_oops restrict_cma_redirect=false slub_debug=- can.stats_timer=0 transparent_hugepage=never cgroup.memory=nosocket,nokmem";
 		stdout-path = "/soc/qcom,qupv3_1_geni_se@ac0000/qcom,qup_uart@a9c000:115200n8";
 	};
 
 	aliases: aliases {
 		serial0 = &qupv3_se7_2uart;
 		hsuart0 = &qupv3_se18_4uart;
+		hsuart5 = &qupv3_se1_2uart;
 		ufshc1 = &ufshc_mem; /* Embedded UFS Slot */
 		i2c0 = &qupv3_se0_i2c;
 		i2c1 = &qupv3_se1_i2c;
@@ -583,19 +584,6 @@
 		};
 	};
 
-	qcom_qpace: qcom,qpace@0x31400000 {
-		compatible = "qcom,qpace";
-		iommus = <&apps_smmu 0x2020 0x13>,
-			 <&apps_smmu 0x2024 0x13>,
-			 <&apps_smmu 0x2028 0x13>,
-			 <&apps_smmu 0x202C 0x13>;
-		qcom,iommu-dma = "bypass";
-		dma-coherent;
-		interconnects = <&gem_noc MASTER_QPACE &mc_virt SLAVE_EBI1>;
-		interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>,
-			     <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>;
-	};
-
 	qcom,smp2p-cdsp {
 		compatible = "qcom,smp2p";
 		qcom,smem = <94>, <432>;
@@ -831,7 +819,7 @@
 		interrupt-controller;
 		#interrupt-cells = <2>;
 		wakeup-parent = <&pdc>;
-		qcom,gpios-reserved = <36 37 38 39 74 119 120 144 145 146 147>;
+		qcom,gpios-reserved = <36 37 38 39 40 41 42 43 74 119 120 144 145 146 147>;
 	};
 
 	tlmm-vm-mem-access {
@@ -2555,7 +2543,8 @@
 				qcom,low-latency;
 				qcom,intents = <0x800  5
 						0x2000 3
-						0x4400 2>;
+						0x4400 2
+						0x6000 4>;
 			};
 
 			qcom,modem_ds {
@@ -3013,7 +3002,6 @@
 
 		qcom,bypass-pbl-rst-wa;
 		qcom,max-cpus = <8>;
-		qcom,enforce-high-irq-cpus;
 
 		msi-parent = <&gic_its 0x60>;
 
@@ -3065,6 +3053,7 @@
 		compatible = "qcom,ramoops";
 		memory-region = <&ramoops_mem>;
 		pmsg-size = <0x200000>;
+		console-size = <0x40000>;
 		mem-type = <2>;
 	};
 
@@ -3815,9 +3804,9 @@
 			bits = <6 1>;
 		};
 
-		cpr_gfx_rc: cpr_gfx_rc@999 {
-			reg = <0x999 0x1>;
-			bits = <0 3>;
+		cpr_gfx_rc: cpr_gfx_rc@9dc {
+			reg = <0x9dc 0x2>;
+			bits = <6 4>;
 		};
 	};
 
@@ -3966,7 +3955,9 @@
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
 		reusable;
 		alignment = <0x0 0x400000>;
-		size = <0x0 0x1400000>;
+		/* ifdef OPLUS_FEATURE_FINGERPRINT */
+		size = <0x0 0x2000000>;
+		/* endif OPLUS_FEATURE_FINGERPRINT */
 	};
 	/*
 	 * hyp_tags_mem is dynamically removed from the RAM
@@ -4170,7 +4161,7 @@
 
 	adspslpi_mem: adspslpi_region@a1400000 {
 		no-map;
-		reg = <0x0 0xa1400000 0x0 0x4600000>;
+		reg = <0x0 0xa1400000 0x0 0x5000000>;
 	};
 
 	hypervisor_extended_heap_mem: hypervisor_extended_heap_region@0xc3dd0000 {
@@ -4298,7 +4289,7 @@
 
 	ramoops_mem: ramoops-region {
 		alloc-ranges = <0x1 0x00000000 0xfffffffe 0xffffffff>;
-		size = <0x0 0x200000>;
+		size = <0x0 0x240000>;
 		no-map;
 	};
 };

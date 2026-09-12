@@ -174,8 +174,8 @@
 };
 
 &pmk8850_gpios {
-	pinctrl-0 = <&alt_sleep_clk_default>;
-	pinctrl-names = "default";
+	/*pinctrl-0 = <&alt_sleep_clk_default>;
+	pinctrl-names = "default";*/
 
 	alt_sleep_clk_default: alt-sleep-clk-default-state {
 		pins = "gpio3";
