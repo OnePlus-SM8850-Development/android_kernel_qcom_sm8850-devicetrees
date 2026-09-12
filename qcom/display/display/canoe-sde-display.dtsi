@@ -6,6 +6,7 @@
 #include "canoe-sde-display-pinctrl.dtsi"
 #include "canoe-sde-display-common.dtsi"
 #include <dt-bindings/clock/qcom,dispcc-canoe.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
 
 &soc {
 	sde_wb0: qcom,wb-display@0 {
@@ -34,7 +35,7 @@
 		regulator-min-microvolt = <5500000>;
 		regulator-max-microvolt = <5500000>;
 		regulator-enable-ramp-delay = <233>;
-		gpio = <&pmh0104_gpios 7 0>;
+		//gpio = <&pmh0104_gpios 7 0>;
 		enable-active-high;
 		regulator-boot-on;
 		proxy-supply = <&display_panel_avdd>;
@@ -109,10 +110,12 @@
 		  * point that its known whether the clock will be used. After
 		  * updating the parent, this clock handle is no longer needed.
 		  */
-		 <&dispcc DISP_CC_ESYNC0_CLK_SRC>;
+		 <&dispcc DISP_CC_ESYNC0_CLK_SRC>,
+		 <&rpmhcc RPMH_LN_BB_CLK4>;
 	clock-names = "pll_byte_clk0", "pll_dsi_clk0",
 			"pll_byte_clk1", "pll_dsi_clk1",
-			"mdp_core_clk", "esync_clk_rcg";
+			"mdp_core_clk", "esync_clk_rcg",
+			"div_clka9";
 	vddio-supply = <&L12B>;
 	vci-supply = <&L13B>;
 	vdd-supply = <&L11B>;
