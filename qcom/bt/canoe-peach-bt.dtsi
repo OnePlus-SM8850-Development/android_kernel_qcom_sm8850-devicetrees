@@ -95,15 +95,3 @@
 &qupv3_se18_4uart {
 	status = "ok";
 };
-
-//spi instance
-&qupv3_se17_spi {
-	status = "ok";
-	spi_cnss {
-		compatible = "qcom,spi-cnss";
-		reg = <0>;
-		spi-max-freq = <32000000>;
-		interrupt-parent = <&tlmm>;
-		qcom,irq-gpio = <&tlmm 85 0>;
-	};
-};
