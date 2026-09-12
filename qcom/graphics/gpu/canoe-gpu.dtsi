@@ -86,11 +86,13 @@
 	nvmem-cells = <&gpu_debug_bus_bin>,
 			<&debugbus_en>,
 			<&gpu_niden_en>,
-			<&gpu_speed_bin>;
+			<&gpu_speed_bin>,
+			<&cpr_gfx_rc>;
 	nvmem-cell-names = "gpu_debug_bus_bin",
 			"debugbus_en",
 			"gpu_niden_en",
-			"speed_bin";
+			"speed_bin",
+			"cpr_rev";
 
 	zap-shader {
 		memory-region = <&gpu_microcode_mem>;
