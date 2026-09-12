@@ -1,4 +1,5 @@
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
+ifdef OPLUS_USE_QCOM_DTBO
 dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
 		display/canoe-sde-display-rumi-overlay.dtbo\
 		display/canoe-sde-display-cdp-overlay.dtbo \
@@ -16,6 +17,10 @@ dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
 		display/alor-interposer-sde-display-rcm-overlay.dtbo \
 		display/alor-interposer-sde-display-qrd-overlay.dtbo \
 		display/alor-interposer-sde.dtbo
+else
+dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
+		oplus/infiniti-24831-display-canoe-overlay.dtbo
+endif
 else
 dtbo-$(CONFIG_ARCH_CANOE) += display/trustedvm-canoe-sde-display-mtp-overlay.dtbo \
 		display/trustedvm-canoe-sde-display-cdp-overlay.dtbo \

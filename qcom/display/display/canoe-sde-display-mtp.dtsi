@@ -300,7 +300,7 @@
 };
 
 &sde_dsi {
-	qcom,dsi-default-panel = <&dsi_nt37801_amoled_cmd>;
+	qcom,dsi-default-panel = <&dsi_sim_vid>;
 };
 
 &qupv3_se19_i2c {
