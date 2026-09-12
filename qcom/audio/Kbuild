@@ -35,6 +35,7 @@ dtbo-y += sun-audio.dtbo \
 endif
 
 ifeq ($(CONFIG_ARCH_CANOE), y)
+ifdef OPLUS_USE_QCOM_DTBO
 dtbo-y += canoe-audio.dtbo \
 		canoe-audio-rumi.dtbo \
                 canoe-audio-mtp.dtbo \
@@ -64,6 +65,14 @@ dtbo-y += canoe-audio.dtbo \
                 alor-audio-atp.dtbo \
                 alor-audio-rcm.dtbo \
                 alor-audio-rumi.dtbo
+else
+#OPLUS_DTS_OVERLAY start
+dtbo-y += canoe-audio.dtbo
+dtbo-y += alor-audio.dtbo
+dtbo-y += oplus/infiniti-24831-audio-canoe-overlay-T0.dtbo
+dtbo-y += oplus/infiniti-24831-audio-canoe-overlay.dtbo
+#OPLUS_DTS_OVERLAY end
+endif
 endif
 
 ifeq ($(CONFIG_ARCH_CHORA), y)
