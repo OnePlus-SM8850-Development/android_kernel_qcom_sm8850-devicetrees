@@ -28,6 +28,10 @@ kernel_dtstree(
             "**/*.bazel",
             "**/*.bzl",
         ],
-    ) + ["//common:kernel_aarch64_sources"],
+    ) + [
+        "//common:kernel_aarch64_sources",
+        "//vendor/qcom/sm8850-modules/qcom/opensource/audio-kernel:audio_common_headers",
+        "//vendor/qcom/sm8850-modules/qcom/opensource/camera-kernel:camera_src_headers",
+    ],
     visibility = ["//visibility:public"],
 )

@@ -1,3 +1,7 @@
+# Inline DT builds do not run the external-module wrapper Makefile.
+CAMERA_KERNEL_ROOT ?= $(srctree)/../vendor/qcom/sm8850-modules/qcom/opensource/camera-kernel
+DTC_INCLUDE += $(CAMERA_KERNEL_ROOT)
+
 # Inline builds provide $(src); external builds may override the root and arch.
 CAMERA_DEVICETREE_ROOT ?= $(src)
 CAMERA_TARGET_ARCH := $(MSM_ARCH)

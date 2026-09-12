@@ -1,3 +1,7 @@
+# Inline DT builds do not run the external-module wrapper Makefile.
+AUDIO_KERNEL_ROOT ?= $(srctree)/../vendor/qcom/sm8850-modules/qcom/opensource/audio-kernel/include
+DTC_INCLUDE += $(AUDIO_KERNEL_ROOT)
+
 ifeq ($(CONFIG_ARCH_PINEAPPLE), y)
 dtbo-y += pineapple-audio.dtbo \
                  pineapple-audio-cdp.dtbo \
