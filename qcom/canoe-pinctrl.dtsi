@@ -688,7 +688,10 @@
 				pins = "gpio44";
 				drive-strength = <2>;
 				bias-pull-up;
-				qcom,i2c_pull;
+//ifdef OPLUS_ARCH_EXTENDS
+/* Delete for disable internal pull */
+				//qcom,i2c_pull;
+//#endif /* OPLUS_ARCH_EXTENDS */
 			};
 		};
 
@@ -702,7 +705,10 @@
 				pins = "gpio45";
 				drive-strength = <2>;
 				bias-pull-up;
-				qcom,i2c_pull;
+//ifdef OPLUS_ARCH_EXTENDS
+/* Delete for disable internal pull */
+				//qcom,i2c_pull;
+//#endif /* OPLUS_ARCH_EXTENDS */
 			};
 		};
 
@@ -1381,7 +1387,7 @@
 				pins = "gpio4";
 				drive-strength = <2>;
 				bias-pull-up;
-				qcom,i2c_pull;
+				/* qcom,i2c_pull; oplus remove*/
 				qcom,apps;
 			};
 		};
@@ -1396,7 +1402,7 @@
 				pins = "gpio5";
 				drive-strength = <2>;
 				bias-pull-up;
-				qcom,i2c_pull;
+				/* qcom,i2c_pull; oplus remove*/
 				qcom,apps;
 			};
 		};
@@ -2310,14 +2316,20 @@
 
 		qupv3_se16_spi_sleep: qupv3_se16_spi_sleep {
 			mux {
+				/* #ifdef OPLUS_FEATURE_SENSOR_IR
 				pins = "gpio16", "gpio17",
 					"gpio18", "gpio19";
+				*/
+				pins = "gpio17";
 				function = "gpio";
 			};
 
 			config {
+				/* #ifdef OPLUS_FEATURE_SENSOR_IR
 				pins = "gpio16", "gpio17",
 					"gpio18", "gpio19";
+				*/
+				pins = "gpio17";
 				drive-strength = <2>;
 				bias-disable;
 			};
@@ -4040,6 +4052,73 @@
 
 			config {
 				pins = "gpio66", "gpio158";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+	};
+	qupv3_se1_2uart_pins: qupv3_se1_2uart_pins {
+		qupv3_se1_default_tx: qupv3_se1_default_tx {
+			mux {
+				pins = "gpio76";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio76";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se1_default_rx: qupv3_se1_default_rx {
+			mux {
+				pins = "gpio77";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio77";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se1_tx: qupv3_se1_tx {
+			mux {
+				pins = "gpio76";
+				function = "qup1_se1_l2";
+			};
+
+			config {
+				pins = "gpio76";
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+
+		qupv3_se1_rx_active: qupv3_se1_rx_active {
+			mux {
+				pins = "gpio77";
+				function = "qup1_se1_l3";
+			};
+
+			config {
+				pins = "gpio77";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		/* RX to be in gpio mode for sleep config */
+		qupv3_se1_rx_wake: qupv3_se1_rx_wake {
+			mux {
+				pins = "gpio77";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio77";
 				drive-strength = <2>;
 				bias-disable;
 			};

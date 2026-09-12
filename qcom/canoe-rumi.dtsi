@@ -225,9 +225,13 @@
 };
 
 &sdhc_2 {
+// #ifdef OPLUS_SENSOR_FEATURE
+/*
 	vdd-supply = <&pmh0101_l9>;
 	qcom,vdd-voltage-level = <2950000 2960000>;
 	qcom,vdd-current-level = <33 977000>;
+*/
+// #endif
 
 	vdd-io-supply = <&pmh0101_l8>;
 	qcom,vdd-io-voltage-level = <1800000 2960000>;
@@ -244,6 +248,9 @@
 
 	qcom,iommu-dma = "bypass";
 	is_rumi;
-
-	status = "ok";
+// #ifdef OPLUS_SENSOR_FEATURE
+	status = "disabled";
+// #else
+//	status = "ok";
+// #endif
 };

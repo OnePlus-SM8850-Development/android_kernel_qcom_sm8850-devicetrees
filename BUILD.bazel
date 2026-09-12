@@ -14,6 +14,10 @@ kernel_dtstree(
             "qcom/**/Makefile",
             "qcom/wlan/Kbuild",
             "qcom/**/*.h",
+            "oplus/Makefile",
+            "oplus/**/*.dtsi",
+            "oplus/**/*.dts",
+            "oplus/**/*.dtso",
             "bindings/**/*",
         ],
         exclude = [
