@@ -87,6 +87,9 @@
 		reg-names = "msi_addr", "smmu_iova_ipa";
 		qcom,rproc-handle = <&wpss_pas>;
 		iommus = <&apps_smmu 0x1400 0x1>;
+		//#ifdef OPLUS_FEATURE_WIFI_MAC
+		use-nv-mac;
+		//#endif /* OPLUS_FEATURE_WIFI_MAC */
 		wlan-en-gpio =<16>;
 		host-sol-gpio =<95>;
 		dev-sol-gpio =<17>;

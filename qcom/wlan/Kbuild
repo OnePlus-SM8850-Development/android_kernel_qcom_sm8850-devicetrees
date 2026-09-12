@@ -28,6 +28,9 @@ endif
 ifeq ($(CONFIG_ARCH_CANOE),y)
 dtbo-y += canoe-kiwi-cnss.dtbo
 dtbo-y += canoe-peach-cnss.dtbo
+# ifdef OPLUS_FEATURE_WIFI_BDF
+dtbo-y += oplus/infiniti_canoe-peach-cnss-overlay.dtbo
+# endif /* OPLUS_FEATURE_WIFI_BDF */
 dtbo-y += canoep-hdk-peach-cnss.dtbo
 dtbo-y += canoe-cdp-kiwi-no-l3k.dtbo
 dtbo-y += canoe-cdp-peach-no-l3k.dtbo
