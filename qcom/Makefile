@@ -1157,5 +1157,7 @@ endif
 
 always-y        := $(dtb-y)
 subdir-y        := $(dts-dirs)
-subdir-y        += audio bt camera data display dsp eSE eva fingerprint graphics mm mmrm nfc securemsm synx video wlan
-clean-files     := *.dtb *.dtbo
+# Canoe subsystem definitions are included in its base and board sources.
+ifneq ($(CONFIG_ARCH_CANOE),y)
+subdir-y        += audio bt camera data display dsp eSE eva graphics mm mmrm nfc synx video wlan
+endif
