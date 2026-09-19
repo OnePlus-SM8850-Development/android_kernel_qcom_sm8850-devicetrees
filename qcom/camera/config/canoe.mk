@@ -29,7 +29,11 @@ dtbo-$(CONFIG_ARCH_CANOE)   += canoe-camera-v2.dtbo \
 	alor-interposer-camera-v2.dtbo
 
 dtbo-$(CONFIG_ARCH_CANOE)   += oplus/infiniti-camera-sensor-mtp-preT0.dtbo       \
-                               oplus/infiniti-camera-sensor-mtp-T0.dtbo
+                               oplus/infiniti-camera-sensor-mtp-T0.dtbo \
+	oplus/fairlady-camera-sensor-mtp-EVB.dtbo \
+	oplus/fairlady-camera-sensor-mtp-EVB-export.dtbo \
+	oplus/macan-camera-sensor-mtp-T0.dtbo \
+	oplus/macanEx-camera-sensor-mtp-T0.dtbo
 endif
 
 dtbo-$(CONFIG_ARCH_CHORA) += chora-camera.dtbo \
