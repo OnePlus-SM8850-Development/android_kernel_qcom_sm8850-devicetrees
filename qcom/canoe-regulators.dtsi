@@ -399,7 +399,10 @@
 			regulator-max-microvolt = <1800000>;
 			qcom,init-voltage = <1800000>;
 			qcom,init-mode = <RPMH_REGULATOR_MODE_AUTO>;
-			regulator-always-on;
+			//ifdef OPLUS_ARCH_EXTENDS
+			/* disable L4B always on */
+			//regulator-always-on;
+			//#endif /* OPLUS_ARCH_EXTENDS */
 		};
 	};
 
@@ -962,9 +965,9 @@
 		S7G: S7G_E0: pmh0110_g_s7: regulator-pmh0110-g-s7 {
 			regulator-name = "pmh0110_g_s7";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <880000>;
+			regulator-min-microvolt = <800000>;
 			regulator-max-microvolt = <1100000>;
-			qcom,init-voltage = <976000>;
+			qcom,init-voltage = <800000>;
 		};
 	};
 
@@ -1113,9 +1116,9 @@
 		L4I: L4I_E0: pmh0110_i_l4: regulator-pmh0110-i-l4 {
 			regulator-name = "pmh0110_i_l4";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <800000>;
-			regulator-max-microvolt = <800000>;
-			qcom,init-voltage = <800000>;
+			regulator-min-microvolt = <1048000>;
+			regulator-max-microvolt = <1048000>;
+			qcom,init-voltage = <1048000>;
 			qcom,init-mode = <RPMH_REGULATOR_MODE_AUTO>;
 		};
 	};
@@ -1380,9 +1383,9 @@
 		L6M: L6M_E1: pm8010_m_l6: regulator-pm8010-m-l6 {
 			regulator-name = "pm8010_m_l6";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <2200000>;
+			regulator-min-microvolt = <1800000>;
 			regulator-max-microvolt = <2200000>;
-			qcom,init-voltage = <2200000>;
+			qcom,init-voltage = <1800000>;
 		};
 	};
 

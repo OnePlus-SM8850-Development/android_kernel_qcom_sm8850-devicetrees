@@ -164,10 +164,12 @@
 	#cooling-cells = <2>;
 };
 
-&pm7550ba_bcl {
-	nvmem-cells = <&smb1510_present>;
-	nvmem-cell-names = "smb1510_present";
-};
+//#ifdef OPLUS_FEATURE_CHG_BASIC
+//&pm7550ba_bcl {
+//	nvmem-cells = <&smb1510_present>;
+//	nvmem-cell-names = "smb1510_present";
+//};
+//#endif
 
 &thermal_zones {
 	pm7550ba_temp_alarm: pm7550ba_tz {
@@ -426,7 +428,12 @@
 	};
 
 	socd {
-		polling-delay-passive = <100>;
+/* #ifdef OPLUS_FEATURE_CHG_BASIC */
+/* polling period change 1s */
+		polling-delay-passive = <1000>;
+/* #else */
+		/* polling-delay-passive = <100>; */
+/* #endif */
 		polling-delay = <0>;
 		thermal-sensors = <&bcl_soc>;
 
@@ -438,7 +445,12 @@
 			};
 
 			socd_trip:socd-trip {
-				temperature = <90>;
+/* #ifdef OPLUS_FEATURE_CHG_BASIC */
+/* thershold: 3% power */
+				temperature = <97>;
+/* #else */
+				/*temperature = <90>;*/
+/* #endif */
 				hysteresis = <0>;
 				type = "passive";
 			};
@@ -447,9 +459,16 @@
 		cooling-maps {
 			socd_map {
 				trip = <&socd_trip>;
-				cooling-device = <&APC1_MX_CX_PAUSE 0 1>,
+				cooling-device =
+/* #ifdef OPLUS_FEATURE_CHG_BASIC */
+/* change big core: 2.2G, super core 2.4G */
+					<&CPU0 THERMAL_NO_LIMIT 9>,
+					<&CPU6 THERMAL_NO_LIMIT 10>,
+/* #else */
+					/* <&APC1_MX_CX_PAUSE 0 1>, */
+/* #endif */
 					<&cdsp_sw 0 4>,
-					<&msm_gpu 0 4>;
+					<&msm_gpu 0 10>;
 			};
 		};
 	};

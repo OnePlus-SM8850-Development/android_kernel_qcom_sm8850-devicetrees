@@ -472,7 +472,8 @@
 		interrupt-controller;
 		#interrupt-cells = <2>;
 		wakeup-parent = <&pdc>;
-		qcom,gpios-reserved = <36 37 38 39 46 73 74 75 148 149 56 58 59 188 189 190 191 196 197>;
+		/* GPIO73 is used by the OPlus touch controller. */
+		qcom,gpios-reserved = <36 37 38 39 46 74 75 148 149 56 58 59 188 189 190 191 196 197>;
 	};
 
 	slimbam: bamdma@6c04000 {
