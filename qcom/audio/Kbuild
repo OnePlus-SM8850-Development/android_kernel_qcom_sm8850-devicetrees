@@ -71,6 +71,8 @@ dtbo-y += canoe-audio.dtbo
 dtbo-y += alor-audio.dtbo
 dtbo-y += oplus/infiniti-24831-audio-canoe-overlay-T0.dtbo
 dtbo-y += oplus/infiniti-24831-audio-canoe-overlay.dtbo
+dtbo-y += oplus/fairlady-25821-audio-canoe-overlay.dtbo
+dtbo-y += oplus/macan-24855-audio-alor-overlay.dtbo
 #OPLUS_DTS_OVERLAY end
 endif
 endif
