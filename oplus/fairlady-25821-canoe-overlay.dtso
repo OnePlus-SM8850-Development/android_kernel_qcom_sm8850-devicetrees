@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: BSD-3-Clause
 /dts-v1/;
 /plugin/;
 #include "../qcom/canoe-mtp-overlay.dtso"
@@ -14,8 +15,11 @@
 #include "oplus_icc/fairlady-25821-icc.dtsi"
 #include "oplus_misc/oplus-misc-25821.dtsi"
 
+#include "fairlady-subsystems.dtsi"
+#include "../qcom/camera/oplus/fairlady-camera-sensor-mtp-EVB.dtsi"
+
 / {
-    model = "Qualcomm Technologies, Inc. Canoe MTP,fairlady";
+    model = "OnePlus Fairlady (25821)";
     oplus,project-id = <25821>;
     oplus,hw-id = <OPLUS_EVB1 OPLUS_EVB2 OPLUS_EVB3 OPLUS_T0 OPLUS_T1 OPLUS_EVT1 OPLUS_EVT2 OPLUS_DVT1 OPLUS_DVT2 OPLUS_PVT1>;
 };

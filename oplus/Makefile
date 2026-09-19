@@ -10,7 +10,9 @@ CANOE_BOARDS += \
 	infiniti-4-24863-evb-canoe-overlay.dtbo \
 	infiniti-5-24831-production-canoe-overlay.dtbo \
 	infiniti-6-24863-production-canoe-overlay.dtbo \
-	infiniti-7-24831-evb-canoe-overlay.dtbo
+	infiniti-7-24831-evb-canoe-overlay.dtbo \
+	fairlady-25821-canoe-overlay.dtbo \
+	fairlady-25871-canoe-overlay.dtbo
 
 dtb-y += $(CANOE_BASE_DTB) $(CANOE_APQ_BASE_DTB) $(CANOE_BOARDS)
 

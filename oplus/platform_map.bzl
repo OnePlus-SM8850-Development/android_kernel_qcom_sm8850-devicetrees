@@ -33,6 +33,8 @@ _platform_map = {
             {"name": "infiniti-5-24831-production-canoe-overlay.dtbo"},
             {"name": "infiniti-6-24863-production-canoe-overlay.dtbo"},
             {"name": "infiniti-7-24831-evb-canoe-overlay.dtbo"},
+            {"name": "fairlady-25821-canoe-overlay.dtbo"},
+            {"name": "fairlady-25871-canoe-overlay.dtbo"},
         ],
     },
     "alor-interposer": {
