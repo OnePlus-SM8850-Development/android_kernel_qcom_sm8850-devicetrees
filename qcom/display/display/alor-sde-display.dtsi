@@ -71,9 +71,15 @@
 	vdd-supply = <&L11B>;
 
 	pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
+#if 0 	/* OPLUS_FEATURE_DISPLAY */
 	pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_esync0_suspend>;
 	pinctrl-1 = <&sde_dsi_active &sde_te_active &sde_esync0_active>;
 	pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend &sde_esync0_suspend>;
+#else	/* OPLUS_FEATURE_DISPLAY */
+	pinctrl-0 = <&sde_dsi_active &sde_te_active>;
+	pinctrl-1 = <&sde_dsi_active &sde_te_active>;
+	pinctrl-2 = <&sde_dsi_suspend &sde_te_suspend>;
+#endif	/* OPLUS_FEATURE_DISPLAY */
 };
 
 &sde_dsi1 {

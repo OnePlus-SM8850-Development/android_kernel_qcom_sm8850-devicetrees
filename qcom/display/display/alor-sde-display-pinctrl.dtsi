@@ -113,6 +113,7 @@
 	};
 
 	pmx_sde_esync: pmx_sde_esync {
+#if 0 /* OPLUS_FEATURE_DISPLAY */
 		sde_esync0_active: sde_esync0_active {
 			mux_159: mux {
 				pins = "gpio88";
@@ -138,7 +139,7 @@
 				bias-pull-down;         /* PULL DOWN */
 			};
 		};
-
+#endif /* OPLUS_FEATURE_DISPLAY */
 		sde_esync1_active: sde_esync1_active {
 			mux_163: mux {
 				pins = "gpio100";

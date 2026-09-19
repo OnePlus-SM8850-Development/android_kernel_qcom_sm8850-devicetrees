@@ -19,7 +19,9 @@ dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
 		display/alor-interposer-sde.dtbo
 else
 dtbo-$(CONFIG_ARCH_CANOE) += display/canoe-sde.dtbo \
-		oplus/infiniti-24831-display-canoe-overlay.dtbo
+		oplus/infiniti-24831-display-canoe-overlay.dtbo \
+		oplus/fairlady-25821-display-canoe-overlay.dtbo \
+		oplus/macan-24855-display-alor-overlay.dtbo
 endif
 else
 dtbo-$(CONFIG_ARCH_CANOE) += display/trustedvm-canoe-sde-display-mtp-overlay.dtbo \

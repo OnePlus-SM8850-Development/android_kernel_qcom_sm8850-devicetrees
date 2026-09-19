@@ -14,8 +14,6 @@
 						&config_154
 						&config_156
 						&config_158
-						&config_160
-						&config_162
 						&config_164
 						&config_166
 						&dgm_0
@@ -82,8 +80,6 @@
 						&mux_153
 						&mux_155
 						&mux_157
-						&mux_159
-						&mux_161
 						&mux_163
 						&mux_165
 						&pmx_sde
@@ -202,8 +198,6 @@
 						&sde_dsi1_suspend
 						&sde_dsi_active
 						&sde_dsi_suspend
-						&sde_esync0_active
-						&sde_esync0_suspend
 						&sde_esync1_active
 						&sde_esync1_suspend
 						&sde_te1_active
