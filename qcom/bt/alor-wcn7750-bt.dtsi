@@ -59,7 +59,9 @@
 		qcom,bt-vdd-aon-supply     = <&L2D>; /* AON LDO */
 		qcom,bt-vdd-rfacmn-supply  = <&S2D>; /* RF 0p8/CMN */
 		qcom,bt-vdd-dig-supply     = <&S2D>; /* BT LDO/BT_CX_MX */
-		qcom,bt-vdd-rfa-0p8-supply = <&L6K>; /* RFA 0p8 / AV91C_VDD */
+//#ifndef OPLUS_BUG_STABILITY
+		//qcom,bt-vdd-rfa-0p8-supply = <&L6K>; /* RFA 0p8 / AV91C_VDD */
+//#endif /* OPLUS_BUG_STABILITY */
 		qcom,bt-vdd-rfa1-supply    = <&S4D>; /* RFA 1p7 */
 		qcom,bt-vdd-rfa2-supply    = <&S4F>; /* RFA 1p2 */
 		qcom,bt-vdd-ipa-2p2-supply = <&S3D>; /* WCN_2p2_RFA */
@@ -68,7 +70,9 @@
 		qcom,bt-vdd-aon-config     = <1800000 1800000 0 1 0>;
 		qcom,bt-vdd-rfacmn-config  = <864000 1100000 0 1 0>;
 		qcom,bt-vdd-dig-config     = <864000 1100000 0 1 0>;
-		qcom,bt-vdd-rfa-0p8-config = <1050000 2000000 0 1 1>;
+//#ifndef OPLUS_BUG_STABILITY
+		//qcom,bt-vdd-rfa-0p8-config = <1050000 2000000 0 1 1>;
+//#endif /* OPLUS_BUG_STABILITY */
 		qcom,bt-vdd-rfa1-config    = <1840000 2100000 0 1 1>;
 		qcom,bt-vdd-rfa2-config    = <1256000 1400000 0 1 1>;
 		qcom,bt-vdd-ipa-2p2-config = <2156000 2700000 0 1 1>;
